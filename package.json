@@ -1,0 +1,29 @@
+{
+  "name": "pin-discussion-boards",
+  "version": "1.0.0",
+  "description": "Put your child module's description here",
+  "main": "main.js",
+  "dependencies": {
+    "canvas-wrapper": "github:byuitechops/pin-discussion-boards"
+  },
+  "devDependencies": {
+    "async": "^2.6.0",
+    "child-development-kit": "github:byuitechops/child-development-kit",
+    "tap": "^10.7.3"
+  },
+  "scripts": {
+    "start": "node ./node_modules/child-development-kit/runChild.js",
+    "test": "tap ./node_modules/child-development-kit/runChild.js -T"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byuitechops/child-template.git"
+  },
+  "author": "Seth Childers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byuitechops/pin-discussion-boards/issues"
+  },
+  "homepage": "https://github.com/byuitechops/pin-discussion-boards#readme",
+  "childType": "postImport"
+}
