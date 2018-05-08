@@ -130,7 +130,7 @@ module.exports = (course, stepCallback) => {
         postDiscussions,
     ];
 
-    if (pinDiscussionBoards === true) {
+    if (course.settings.pinDiscussionBoards === true) {
         asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
             if (waterfallErr) {
                 course.error(waterfallErr);
