@@ -29,11 +29,21 @@ module.exports = (course, stepCallback) => {
                 return a.weekNum - b.weekNum;
             });
         });
-        console.log(orderedDiscussions);
+        // console.log(orderedDiscussions);
+        var order = [];
+        var reversed = orderedDiscussions.reverse();
+        reversed.forEach(discussion => {
+            order.push(discussion.id);
+        });
+
+        console.log(order);
+        canvas.postJSON(`/api/v1/courses/${course.info.canvasOU}/discussion_topics/reorder`, {
+            'order[]': order
+        }, (err) => {
+            if (err) {
+                course.error(new Error(err));
+            }
+            stepCallback(null, course);
+        });
     });
-
-
-
-
-    stepCallback(null, course);
 };

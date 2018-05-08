@@ -1,7 +1,7 @@
 {
   "name": "pin-discussion-boards",
   "version": "1.0.0",
-  "description": "Put your child module's description here",
+  "description": "Pin each discussion board that is used in the course and order them by each week (i.e. W01 Discussions, then W02 Discussions, etc)",
   "main": "main.js",
   "dependencies": {
     "canvas-wrapper": "github:byuitechops/pin-discussion-boards"
