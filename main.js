@@ -133,7 +133,7 @@ module.exports = (course, stepCallback) => {
     if (pinDiscussionBoards === true) {
         asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
             if (waterfallErr) {
-                course.error(new Error(waterfallErr));
+                course.error(waterfallErr);
             } else {
                 /* Log the new order of the discussions */
                 course.log(`Reordered Pinned Discussions`, {
