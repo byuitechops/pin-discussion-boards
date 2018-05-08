@@ -1,10 +1,10 @@
 {
   "name": "pin-discussion-boards",
   "version": "1.0.0",
-  "description": "Pin each discussion board that is used in the course and order them by each week (i.e. W01 Discussions, then W02 Discussions, etc)",
+  "description": "Boards organize by most recently viewed, rather than in order. Pinning them keeps them in order. This child module pins the discussion boards in order, so they don't move around for the user.",
   "main": "main.js",
   "dependencies": {
-    "canvas-wrapper": "github:byuitechops/pin-discussion-boards"
+    "canvas-wrapper": "github:byuitechops/canvas-wrapper"
   },
   "devDependencies": {
     "async": "^2.6.0",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byuitechops/child-template.git"
+    "url": "git+https://github.com/byuitechops/pin-discussion-boards.git"
   },
   "author": "Seth Childers",
   "license": "MIT",
