@@ -130,14 +130,17 @@ module.exports = (course, stepCallback) => {
         postDiscussions,
     ];
 
-    asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
-        if (waterfallErr) {
-            course.error(new Error(waterfallErr));
-        }
-        /* Log the new order of the discussions */
-        course.log(`Reordered Pinned Discussions`, {
-            'Order of IDs': order.toString()
+    if (pinDiscussionBoards === true) {
+        asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
+            if (waterfallErr) {
+                course.error(new Error(waterfallErr));
+            } else {
+                /* Log the new order of the discussions */
+                course.log(`Reordered Pinned Discussions`, {
+                    'Order of IDs': order.toString()
+                });
+            }
         });
-        stepCallback(null, course);
-    });
+    }
+    stepCallback(null, course);
 };
