@@ -134,7 +134,7 @@ module.exports = (course, stepCallback) => {
         postDiscussions,
     ];
 
-    // if (course.settings.pinDiscussionBoards === true) {
+    if (course.settings.pinDiscussionBoards === true) {
         asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
             if (waterfallErr) {
                 course.error(waterfallErr);
@@ -144,7 +144,7 @@ module.exports = (course, stepCallback) => {
                     'Order of IDs': order.toString()
                 });
             }
+            stepCallback(null, course);
         });
-    // }
-    stepCallback(null, course);
+    }
 };
