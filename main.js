@@ -98,6 +98,10 @@ module.exports = (course, stepCallback) => {
                 return;
             }
 
+            if (order.length === 0) {
+                pinCallback(new Error(`Order is empty. There may not be discussions that are module items`));
+                return;
+            }
             /* Might have to call this outside of the eachSeries */
             pinCallback(null, order);
         });
@@ -130,7 +134,7 @@ module.exports = (course, stepCallback) => {
         postDiscussions,
     ];
 
-    if (course.settings.pinDiscussionBoards === true) {
+    // if (course.settings.pinDiscussionBoards === true) {
         asyncLib.waterfall(myFunctions, (waterfallErr, order) => {
             if (waterfallErr) {
                 course.error(waterfallErr);
@@ -141,6 +145,6 @@ module.exports = (course, stepCallback) => {
                 });
             }
         });
-    }
+    // }
     stepCallback(null, course);
 };
