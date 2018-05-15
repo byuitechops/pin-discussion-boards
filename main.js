@@ -153,8 +153,8 @@ module.exports = (course, stepCallback) => {
                 });
             }
             stepCallback(null, course);
-            return;
         });
+    } else {
+        stepCallback(null, course);
     }
-    stepCallback(null, course);
 };
