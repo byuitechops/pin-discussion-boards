@@ -8,6 +8,13 @@ const canvas = require('canvas-wrapper');
 const asyncLib = require('async');
 
 module.exports = (course, stepCallback) => {
+    var validPlatforms = ['online', 'pathway', 'campus'];
+    if (!validPlatforms.includes(course.settings.platform)) {
+        course.message('Invalid platform. Skipping child module');
+        stepCallback(null, course);
+        return;
+    }
+
     /****************************************************
      * getDiscussions
      * Get the list of discussions from Canvas
@@ -146,6 +153,8 @@ module.exports = (course, stepCallback) => {
                 });
             }
             stepCallback(null, course);
+            return;
         });
     }
+    stepCallback(null, course);
 };
