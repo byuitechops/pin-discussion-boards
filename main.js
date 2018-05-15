@@ -99,7 +99,8 @@ module.exports = (course, stepCallback) => {
             }
 
             if (order.length === 0) {
-                pinCallback(new Error(`Order is empty. There may not be discussions that are module items`));
+                course.warning(`Order is empty. There may not be discussions that are module items`);
+                stepCallback(null, course);
                 return;
             }
             /* Might have to call this outside of the eachSeries */
